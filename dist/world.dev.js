@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var country = document.getElementById("country").value.trim();
 
     if (country === "") {
-      document.getElementById("result").innerHTML = "<p>Please enter a country name.</p>";
+      document.getElementById("result").innerHTML = "<p>Please enter a country name.</p>"; // Message incase the user eenters a a blank text.
+
       return;
-    }
+    } // Sets up the sending of HTTP requests to the server.
+
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "".concat(endpoint).concat(encodeURIComponent(country)), true);
@@ -26,11 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     xhr.send();
-  }
+  } // Adds an event to the lookup button, shows result based on the endpoint.
+
 
   document.getElementById("lookup").addEventListener("click", function () {
     fetchData("world.php?country=");
-  });
+  }); // Adds an event to the lookupCities button
+
   document.getElementById("lookupCities").addEventListener("click", function () {
     fetchData("world.php?lookup=cities&country=");
   });
